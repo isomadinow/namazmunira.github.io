@@ -36,11 +36,33 @@ if (selectElement.value == "Кемерово") {
 selectElement.addEventListener("change", function() {
   var selectedOption = selectElement.value;
   
-  if(selectElement.value == "Новокузнецк"){
+  if(selectElement.value === "Новокузнецк"){
+    var  now = moment();
     getNovokuznDatas();
+    var formattedD = now.format('DD.MM');
+    prayerTimes = updateDatePrayer(formattedD);
+    nextPrayerTime =  getNextPrayerTime(prayerTimes);
   }
-  else if (selectElement.value == "Кемерово") {
+  else if (selectElement.value === "Кемерово") {
+    var  now = moment();
     getKemerovoDatas();
+    var formattedD = now.format('DD.MM');
+    prayerTimes = updateDatePrayer(formattedD);
+    nextPrayerTime =  getNextPrayerTime(prayerTimes);
+  }
+  else if (selectElement.value === "Прокопьевск") {
+    var  now = moment();
+    getProkopevsk();
+    var formattedD = now.format('DD.MM');
+    prayerTimes = updateDatePrayer(formattedD);
+    nextPrayerTime =  getNextPrayerTime(prayerTimes);
+  }
+  else if (selectElement.value === "Ленинск-Кузнецкий") {
+    var  now = moment();
+    getLeninskKuznetsk();
+    var formattedD = now.format('DD.MM');
+    prayerTimes = updateDatePrayer(formattedD);
+    nextPrayerTime =  getNextPrayerTime(prayerTimes);
   }
   // Обновляем текст на странице
   textElement.textContent = selectedOption;
